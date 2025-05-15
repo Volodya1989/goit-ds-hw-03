@@ -6,9 +6,6 @@ import os
 
 load_dotenv()  
 MONGO_URI = os.getenv("MONGO_URI")
-print(MONGO_URI)
-
-
 
 # Connect to MongoDB Atlas
 def connect_to_db():

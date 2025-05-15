@@ -1,12 +1,19 @@
 # main.py
 from pymongo import MongoClient
-from pymongo.errors import ConnectionFailure, OperationFailure
+from pymongo.errors import ConnectionFailure
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  
+MONGO_URI = os.getenv("MONGO_URI")
+print(MONGO_URI)
+
 
 
 # Connect to MongoDB Atlas
 def connect_to_db():
     try:
-        client = MongoClient('base_mongoDB_url')  # Replace with your MongoDB URI
+        client = MongoClient(MONGO_URI)
         db = client.cat_db
         return db.cats
     except ConnectionFailure:
